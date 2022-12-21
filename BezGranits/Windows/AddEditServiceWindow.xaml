@@ -1,0 +1,22 @@
+﻿<Window x:Class="BezGranits.AddEditServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BezGranits"
+        mc:Ignorable="d"
+        Title="AddEditServiceWindow" Height="450" Width="400" WindowStartupLocation="CenterScreen" x:Name="Add_EditServiceWindow" Closed="Add_EditServiceWindow_Closed">
+    <Grid>
+        <StackPanel Background="LightCyan">
+            <Label Content="Услуга" FontSize="20"/>
+            <TextBox x:Name="txtName" Text="{Binding Name}" Margin="5 0 5 2"/>
+            <Label Content="Стоимость" FontSize="20"/>
+            <TextBox x:Name="txtPrice" Text="{Binding Price}" Margin="5 0 5 2"/>
+            <StackPanel Orientation="Horizontal" Margin="5 0 5 2">
+                <Label Content="Длительность, мин:" FontSize="20" Margin="0 -4 0 0"/>
+                <TextBox Margin="0 5 0 5" Width="50" x:Name="txtMinutes"/>
+            </StackPanel>
+            <Button x:Name="btnSave" Click="btnSave_Click" Content="Сохранить" Width="105" Background="LightGreen" FontSize="20" FontWeight="Medium"/>
+        </StackPanel>
+    </Grid>
+</Window>

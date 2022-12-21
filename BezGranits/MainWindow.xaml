@@ -1,0 +1,41 @@
+﻿<Window x:Class="BezGranits.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BezGranits"
+        mc:Ignorable="d"
+        Title="Без Границ" Height="500" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Icon="Images\Icon.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" x:Name="GridColumn1"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--frame navigation buttons-->
+        <StackPanel Grid.Row="1" Background="LightCyan" Width="200" x:Name="stckNavigationButtons">
+            <Button x:Name="btnLesson" Content="Расписание" Style="{StaticResource btnFrameStyle}" Margin="2 10 0 0" Click="btnLesson_Click"/>
+            <Button x:Name="btnClient" Content="Клиенты" Style="{StaticResource btnFrameStyle}" Click="btnClient_Click"/>
+            <Button x:Name="btnEmployee" Content="Сотрудники" Style="{StaticResource btnFrameStyle}" Click="btnEmployee_Click"/>
+            <Button x:Name="btnService" Content="Услуги" Style="{StaticResource btnFrameStyle}" Click="btnService_Click"/>
+            <Button x:Name="btnReports" Content="Отчёты" Style="{StaticResource btnFrameStyle}" Click="btnReports_Click"/>
+        </StackPanel>
+        <!--top panel-->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="#ccf3ee">
+            <Button x:Name="btnFrameMenu" Background="#ccf3ee" Click="btnFrameMenu_Click" BorderThickness="0">
+                <Image Source="Images\Menu.png" Width="40" Height="35"/>
+            </Button>
+            <Button x:Name="btnLogo" Click="btnLogo_Click" Background="#ccf3ee" BorderThickness="0">
+                <Image Source="Images\Logo.png" VerticalAlignment="Top" Margin="5 0 5 0"/>
+            </Button>
+        </StackPanel>
+        <TextBlock x:Name="txtPageName" Grid.Row="0" Grid.Column="1" Text="Расписание" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+        <!--frame-->
+        <Frame Grid.Row="1" Grid.Column="1" Background="LightCyan" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

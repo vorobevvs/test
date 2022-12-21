@@ -1,0 +1,40 @@
+﻿<Page x:Class="BezGranits.ReportsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BezGranits"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReportsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="cmbMonths" Margin="10" Height="25" Grid.Column="0" SelectionChanged="cmbMonths_SelectionChanged"/>
+            <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" FontSize="30" FontWeight="DemiBold" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Button Grid.Column="2" Height="24" Width="24" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="0 0 10 0" Click="Button_Click">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                    <Path Fill="#FF169316" Data="M15,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M7,20H9V14H7V20M11,20H13V12H11V20M15,20H17V16H15V20Z" />
+                </Canvas>
+            </Button>
+        </Grid>
+        <DataGrid x:Name="GridReports" Grid.Row="1" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" CanUserDeleteRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Name}" Width="0.25*"/>
+                <DataGridTextColumn Header="Педагог" Binding="{Binding Employee.FName}" Width="0.5*"/>
+                <DataGridTextColumn Header="Время начала" Binding="{Binding StartTime, StringFormat={}{0:dd.MM.yyyy hh:MM}}" Width="0.2*"/>
+                <DataGridTextColumn Header="Длительность" Binding="{Binding Service.Duration}"/>
+                <DataGridTextColumn Header="Тип занятия" Binding="{Binding LessonType}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

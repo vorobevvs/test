@@ -1,0 +1,208 @@
+﻿<Application x:Class="BezGranits.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BezGranits"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--style for frame navigation buttons-->
+        <Style x:Key="btnFrameStyle" TargetType="{x:Type Button}">
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="LightCyan" Offset="0"/>
+                            <GradientStop Color="Wheat" Offset="1.5"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.FontFamily" Value="TimesNewRoman"/>
+            <Setter Property="Control.Margin" Value="2 3 3 0"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Padding="5" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1.5"  Background="{TemplateBinding Background}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextElement.Foreground" Value="#FF575656"/>
+                                <Setter Property="Control.Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Color="#FFACC7C7" Offset="0"/>
+                                                <GradientStop Color="#FFB9A98B" Offset="1.5"/>
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Control.Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush>
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStop Color="LightCyan" Offset="0"/>
+                                                <GradientStop Color="Wheat" Offset="1.5"/>
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation  By="10" AutoReverse="True" Duration="0:0:0.1" Storyboard.TargetProperty="Margin"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--style for frame back/forward buttons-->
+
+        <!--style for edit button-->
+        <Style x:Key="btnEditStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Control.Margin" Value="0 0 3 0"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.Height" Value="25"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="1" Background="{TemplateBinding Background}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Edit.png"/>
+                                <Label Content="Править" x:Name="lblEditButton"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background"  Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--style for add button-->
+        <Style x:Key="btnAddStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Control.Margin" Value="0 0 3 0"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.Height" Value="25"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="1" Background="{TemplateBinding Background}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Add.png"/>
+                                <Label Content="Добавить"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="WhiteSmoke"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--style for delete button-->
+        <Style x:Key="btnDeleteStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFFFE3E1"/>
+            <Setter Property="Control.Margin" Value="0 0 3 0"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.Height" Value="25"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="1" Background="{TemplateBinding Background}">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Images\Delete.png" Margin="1"/>
+                                <!--<Label Content="Удалить"/>-->
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFFCDC8"/>
+                                <Setter Property="ToolTip" Value="Удаление записи"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FFFFE3E1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--style for search textbox-->
+        <Style x:Key="txtSearchStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Control.Margin" Value="0 0 3 0"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.Height" Value="25"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <!--style for stackpanel-->
+        <Style x:Key="stckActionPanelStyle" TargetType="{x:Type StackPanel}">
+            <Setter Property="Control.Background" Value="#ccf3ee"/>
+            <Setter Property="Control.Margin" Value="10 10 10 10"/>
+            <Setter Property="Control.Height" Value="30"/>
+            <Setter Property="Control.VerticalAlignment" Value="Top"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <!--style for datagrid-->
+        <Style x:Key="datagridStyle" TargetType="{x:Type DataGrid}">
+            <Setter Property="Control.Margin" Value="10 0 10 5"/>
+            <Setter Property="Control.Background" Value="#ccf3ee"/>
+            <Setter Property="Control.BorderThickness" Value="0 0.5 0 0.5"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Control.FontSize" Value="20"/>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                                <Border BorderThickness="0 0 0 1" Background="White">
+                                    <ContentPresenter Margin="5 2 5 2" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Border BorderThickness="0" Background="{TemplateBinding Background}">
+                                    <ContentPresenter/>
+                                </Border>
+                                <!--<ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="LightGray"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>-->
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Application.Resources>
+</Application>

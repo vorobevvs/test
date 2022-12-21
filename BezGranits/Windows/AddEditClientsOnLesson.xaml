@@ -1,0 +1,34 @@
+﻿<Window x:Class="BezGranits.AddEditClientsOnLesson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BezGranits"
+        mc:Ignorable="d"
+        Title="Клиенты на занятии" Height="500" Width="900">
+    <Grid>
+        <StackPanel Background="LightCyan">
+            <TextBlock Text="Клиент" FontSize="30"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="150" Margin="5" SelectedItem="{Binding Client}" DisplayMemberPath="FName" x:Name="cmbClient" IsEditable="False"/>
+                <Button x:Name="btnAdd" Margin="5" Style="{StaticResource btnAddStyle}" Click="btnAdd_Click"/>
+            </StackPanel>
+            <DataGrid x:Name="ClientGrid" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" Grid.Row="1" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding Client.FName}" Width="0.4*"/>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding Client.Sex}" Width="0.1*"/>
+                    <DataGridTextColumn Header="Баланс" Binding="{Binding Client.Balance}" Width="0.5*"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding Client.DateOfBirth,StringFormat={}{0:dd.MM.yyyy}}" Width="0.7*"/>
+                    <DataGridTextColumn Header="Пасспорт" Binding="{Binding Client.Passport}" Width="0.6*"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Style="{StaticResource btnDeleteStyle}" Click="btnDelete_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="342ef36258c44c9aaa56c4beb1e88366" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="BezGranitsModel.Client" Width="1.5" PointX="5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BezGranitsModel.ClientContacts" Width="1.5" PointX="7.375" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BezGranitsModel.Employee" Width="1.5" PointX="7.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BezGranitsModel.EmployeeContact" Width="1.5" PointX="5.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BezGranitsModel.Lesson" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BezGranitsModel.Service" Width="1.5" PointX="8.5" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="BezGranitsModel.FK_ClientContacts_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="BezGranitsModel.FK_EmployeeContact_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="BezGranitsModel.FK_Lesson_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="BezGranitsModel.FK_Lesson_Service" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BezGranitsModel.ClientsOnLesson" Width="1.5" PointX="4.625" PointY="4.25" />
+        <AssociationConnector Association="BezGranitsModel.FK_ClientsOnLesson_Client" />
+        <AssociationConnector Association="BezGranitsModel.FK_ClientsOnLesson_Lesson" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
